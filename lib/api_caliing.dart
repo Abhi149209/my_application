@@ -9,9 +9,9 @@ class WeatherModel {
     Networking networking = Networking(url: url1);
     var weatherData = await networking.getData();
     List<Users> users=[];
-    for(var u in weatherData["response"]["docs"].length){
-      Users user=Users(index: u,id: weatherData["response"]["docs"][u]["id"],abstract: weatherData["response"]["docs"][u]["abstract"],journal: weatherData["response"]["docs"][u]["journal"],publication_date: weatherData["response"]["docs"][u]["publication_date"],article_type: weatherData["response"]["docs"][u]["article_type"],author_display: weatherData["response"]["docs"][u]["author_display"],title_display: weatherData["response"]["docs"][u]["title_display"],score: weatherData["response"]["docs"][u]["score"]);
-
+    for(var u in weatherData["docs"].length){
+      Users user=Users(index: u,id: weatherData["docs"][u]["id"],abstract: weatherData["docs"][u]["abstract"],journal: weatherData["docs"][u]["journal"],publication_date: weatherData["docs"][u]["publication_date"],article_type: weatherData["docs"][u]["article_type"],author_display: weatherData["docs"][u]["author_display"],title_display: weatherData["docs"][u]["title_display"],score: weatherData["docs"][u]["score"]);
+      print(user.publication_date);
       users.add(user);
     }
 

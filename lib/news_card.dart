@@ -40,8 +40,14 @@ class _ScreenState extends State<Screen> {
   }
 }
 
-class ListViewBuilder extends StatelessWidget {
+class ListViewBuilder extends StatefulWidget {
+  @override
+  _ListViewBuilderState createState() => _ListViewBuilderState();
+}
+
+class _ListViewBuilderState extends State<ListViewBuilder> {
   List<Users> data=[];
+
   Future<List<Users>> asyncronus() async {
     data=await WeatherModel().getCityWeather();
     return data;
